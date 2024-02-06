@@ -1,5 +1,5 @@
 
-#ACTransU-Net
+##### ACTransU-Net
 
 #### Introduction
 This work presents a novel adaptive cascaded transformer U-Net (ACTransU-Net) for brain tumor segmentation in magnetic resonance imaging, which integrates both the transformer and dynamic convolution into a cascaded U-Net architecture to adaptively capture both global information and local details of the brain tumors.The ACTransU-Net firstly cascades two three-dimensional U-Nets into a two-level network to segment the brain tumor from coarse to fine. Subsequently, it integrates a full-dimensional dynamic convolution module into the second-stage shallow encoder and decoder so as to enhance the local detail representation of various brain tumors by dynamically adjusting the convolution kernel parameters. In addition, a 3D Swain transformer module is also introduced into the second stage deep encoder and decoder to capture the long-range dependency of the image, which helps in tuning the global representation of brain tumors.
