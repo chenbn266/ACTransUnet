@@ -1,4 +1,4 @@
-
+![image](https://github.com/chenbn266/ACTransUnet/assets/126538147/c98f6cf4-39a0-4e7c-84c6-36ca57e1e6ab)
 ##### ACTransU-Net
 
 #### Introduction
@@ -8,16 +8,30 @@ This work presents a novel adaptive cascaded transformer U-Net (ACTransU-Net) fo
 We used BraTS 2020 and BraTS 2021, the data can be found again here: https://ipp.cbica.upenn.edu/ and https://www.synapse.org/#!Synapse:syn25829067/wiki/
 
 #### Requirements
-git+https://github.com/NVIDIA/dllogger \ 
-git+https://github.com/NVIDIA/mlperf-common.git \ 
-nibabel>=3.2.1 \ 
-joblib>=1.0.1\ 
-pytorch-lightning>=1.7.7\ 
-scikit-learn>=1.0 \ 
-scikit-image>=0.18.3\ 
-scipy>=1.8.1 \ 
-rich>=12.5.0\ 
-monai>=1.0.0 \
+git+https://github.com/NVIDIA/dllogger
+
+
+git+https://github.com/NVIDIA/mlperf-common.git  
+
+nibabel>=3.2.1
+
+joblib>=1.0.1
+
+pytorch-lightning>=1.7.7
+
+scikit-learn>=1.0 
+
+scikit-image>=0.18.3
+
+scipy>=1.8.1 
+
+
+rich>=12.5.0
+
+
+monai>=1.0.0
+
+
 
 #### preprocessing
 Each example in the BraTS dataset consists of four NIfTI files with different MRI modalities (file name suffixes flair, t1, t1ce, t2). In addition, the examples in the training dataset have an annotated NIfTI file (filename suffix seg). The first step in data preprocessing was to stack all four modalities so that each example had a shape of (4, 240, 240, 155) (with an input tensor of (C, H, W, D) layout, where C-channel, H-height, W-width and D-depth). Then, excess background voxels on the boundary of each body are cropped (voxel value is zero) as they do not provide any useful information and can be ignored by the neural network. Subsequently, for each instance, the mean and standard deviation within the non-zero region of each channel are calculated separately. All voxels were normalized by first subtracting the mean and then dividing by the standard deviation. The background voxels were not normalized, so their values remained zero. In order to distinguish between the background voxels and the normalized voxels with values close to zero, we added an input channel that encodes the foreground voxels with a single click and stacked it with the input data. Thus, each instance has 5 channels. \ 
