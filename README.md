@@ -1,4 +1,3 @@
-![image](https://github.com/chenbn266/ACTransUnet/assets/126538147/c98f6cf4-39a0-4e7c-84c6-36ca57e1e6ab)
 ##### ACTransU-Net
 
 #### Introduction
